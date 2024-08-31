@@ -93,6 +93,9 @@
     enable = true;
     userName = "ldjennings";
     userEmail = "jenningsliamd@gmail.com";
+    extraConfig = {
+      core.editor = "vim";
+    };
   };
 
   # This value determines the home Manager release that your

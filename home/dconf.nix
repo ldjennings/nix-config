@@ -7,6 +7,8 @@
       favorite-apps = # Taskbar apps
       [
         "firefox.desktop"
+        "org.gnome.Nautilus.desktop"
+        "org.gnome.Terminal.desktop"
        ];
     };
 

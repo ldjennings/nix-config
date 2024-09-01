@@ -25,8 +25,8 @@
       nixos = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
-	  ./configuration.nix
-          (import ./firefox.nix {
+	  ./nixos/configuration.nix
+          (import ./nixos/firefox.nix {
             inherit firefox-addons;
           })
           # make home-manager as a module of nixos
@@ -36,7 +36,7 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
 
-            home-manager.users.liam = import ./home.nix;
+            home-manager.users.liam = import ./home/home.nix;
           }
         ];
       };

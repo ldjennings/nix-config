@@ -5,8 +5,8 @@
   home.packages = with pkgs.gnomeExtensions;
   [
     kimpanel
-    system-monitor
     clipboard-indicator
+    wallhub
   ];
 
   dconf.settings =
@@ -19,8 +19,8 @@
       enabled-extensions =
       [
 	pkgs.gnomeExtensions.kimpanel.extensionUuid	
-	pkgs.gnomeExtensions.system-monitor.extensionUuid	
 	pkgs.gnomeExtensions.clipboard-indicator.extensionUuid
+	pkgs.gnomeExtensions.wallhub.extensionUuid	
       ];
     };
 

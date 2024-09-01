@@ -33,7 +33,6 @@
     # Add some actually useful packages back
     environment.systemPackages = with pkgs;
     [
-      gnome-extension-manager
     ]
     ++
     (with pkgs.gnome;

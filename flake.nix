@@ -17,9 +17,12 @@
       url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+
   };
 
-  outputs = inputs@{ nixpkgs, home-manager, firefox-addons, ... }: {
+  outputs = inputs@{ nixpkgs, home-manager, firefox-addons, nixos-hardware, ... }: {
     nixosConfigurations = {
       # TODO please change the hostname to your own
       nixos = nixpkgs.lib.nixosSystem {
@@ -29,6 +32,7 @@
           (import ./nixos/firefox.nix {
             inherit firefox-addons;
           })
+	  nixos-hardware.nixosModules.framework-12th-gen-intel
           # make home-manager as a module of nixos
           # so that home-manager configuration will be deployed automatically when executing `nixos-rebuild switch`
           home-manager.nixosModules.home-manager

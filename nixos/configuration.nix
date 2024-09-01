@@ -154,6 +154,14 @@
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
+  services.fstrim.enable = true; # Disk
+
+  services.fwupd = # Bios updates
+  {
+    enable = true;
+  };
+
+
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;

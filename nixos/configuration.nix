@@ -13,6 +13,9 @@
       (import ./gnome.nix {
         inherit pkgs;
        })
+      (import ./nix-ld.nix {
+        inherit pkgs;
+       })
  
     ];
 

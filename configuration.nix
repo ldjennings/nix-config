@@ -74,6 +74,33 @@
     };
   };
 
+    services.gnome =
+    {
+      core-utilities.enable = false;
+    };
+
+    environment.gnome.excludePackages = with pkgs;
+    [
+      gnome-tour
+    ];
+
+    # Add some actually useful packages back
+    environment.systemPackages = with pkgs;
+    [
+      gnome-extension-manager
+    ]
+    ++
+    (with pkgs.gnome;
+    [
+      gnome-tweaks
+      nautilus
+      gnome-terminal
+      gnome-disk-utility
+      resources
+    ]
+    );
+
+
   services.fprintd.enable = true;	 
 
   # Configure keymap in X11
@@ -118,6 +145,8 @@
 
 
 
+
+
 # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
@@ -140,6 +169,9 @@
     home-manager
     lf
   ];
+
+  programs.zsh.enable = true;
+  programs.zsh.ohMyZsh.enable = true;
   
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 

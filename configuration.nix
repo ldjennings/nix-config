@@ -130,9 +130,39 @@
   };
 
   # Install firefox.
-  programs.firefox.enable = true;
+  programs = {
+    firefox = {
+      enable = true;
+      languagePacks = [ "de" "en-US" ];
 
-  # Allow unfree packages
+      /* ---- POLICIES ---- */
+      # Check about:policies#documentation for options.
+      policies = {
+        DisableTelemetry = true;
+        DisableFirefoxStudies = true;
+        EnableTrackingProtection = {
+          Value= true;
+          Locked = true;
+          Cryptomining = true;
+          Fingerprinting = true;
+        };
+        DisablePocket = true;
+        DisableFirefoxAccounts = true;
+        DisableAccounts = true;
+        DisableFirefoxScreenshots = true;
+        OverrideFirstRunPage = "";
+        OverridePostUpdatePage = "";
+        DontCheckDefaultBrowser = true;
+        DisplayBookmarksToolbar = "never"; # alternatives: "always" or "newtab"
+        DisplayMenuBar = "default-off"; # alternatives: "always", "never" or "default-on"
+        SearchBar = "unified"; # alternative: "separate"
+};
+};
+};  
+
+
+
+# Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
   # Enable flakes

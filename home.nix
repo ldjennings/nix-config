@@ -5,7 +5,13 @@
   home.username = "liam";
   home.homeDirectory = "/home/liam";
 
-
+    imports =
+    [
+      ./dconf.nix  
+      (import ./gnome-extensions.nix {
+        inherit pkgs;
+       })
+    ];
   # link the configuration file in current directory to the specified location in home directory
   # home.file.".config/i3/wallpaper.jpg".source = ./wallpaper.jpg;
 

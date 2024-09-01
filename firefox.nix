@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ firefox-addons, ... }:
 
   let
     lock-false = {
@@ -42,15 +42,13 @@
         # Check about:support for extension/add-on ID strings.
         # Valid strings for installation_mode are "allowed", "blocked",
         # "force_installed" and "normal_installed".
-        ExtensionSettings = {
-          "*".installation_mode = "blocked"; # blocks all addons except the ones specified below
-          # uBlock Origin:
-          "uBlock0@raymondhill.net" = {
-            install_url = "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
-            installation_mode = "force_installed";
-          };
-        };
-  
+ 	extensions = with firefox-addons.packages."x86_64-linux"; [
+          bitwarden
+          ublock-origin
+          sponsorblock
+          darkreader
+        ];
+ 
         /* ---- PREFERENCES ---- */
         # Check about:config for options.
         Preferences = { 
@@ -72,6 +70,8 @@
           "browser.newtabpage.activity-stream.showSponsored" = lock-false;
           "browser.newtabpage.activity-stream.system.showSponsored" = lock-false;
           "browser.newtabpage.activity-stream.showSponsoredTopSites" = lock-false;
+	  "browser.download.autohideButton" = false; # Never hide downloads button
+          "media.videocontrols.picture-in-picture.video-toggle.enabled" = false; # Disable picture in picture;
         };
       };
     };

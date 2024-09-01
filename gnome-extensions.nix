@@ -6,6 +6,7 @@
   [
     kimpanel
     system-monitor
+    clipboard-indicator
   ];
 
   dconf.settings =

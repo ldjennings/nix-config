@@ -43,5 +43,17 @@
       old-files-age = 30;
     };
 
+    "org/gnome/mutter/wayland/keybindings" =
+    {
+      restore-shortcuts = []; # Never reset shortcuts to default
+    };
+
+    "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" =
+    {
+      binding = "<Control>t";
+      command = "gnome-terminal";
+      name = "Open Resources app to force quit applications";
+    };
+
   };
 }

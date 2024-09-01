@@ -19,7 +19,7 @@
     # feel free to add your own or remove some of them
 
     neofetch
-
+    vlc
     # archives
     zip
     xz
@@ -84,6 +84,15 @@
       core.editor = "vim";
       help.autocorrect = 30;
     };
+  };
+
+  programs.vscode =
+  {
+    enable = true;
+    extensions = with pkgs.vscode-extensions; [
+      usernamehw.errorlens
+      llvm-vs-code-extensions.vscode-clangd
+    ];
   };
 
   # This value determines the home Manager release that your

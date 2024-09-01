@@ -19,6 +19,16 @@
 
       autocd = true;
 
+      shellAliases =
+      {
+	gav = "git add . -v";
+        gpl = "git pull";
+	gc = "git commit";
+        gp = "git push";
+        gs = "git status";
+        gsv = "git status -v";
+
+      };
 
       sessionVariables =
       {

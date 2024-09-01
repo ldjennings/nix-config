@@ -50,12 +50,46 @@
       restore-shortcuts = []; # Never reset shortcuts to default
     };
 
-    "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" =
+    "org/gnome/desktop/wm/keybindings" =
     {
-      binding = "<Control>t";
-      command = "gnome-terminal";
-      name = "Open Resources app to force quit applications";
+      switch-applications = [ "<Super>Tab" ];
+      switch-applications-backward = [ "<Shift><Super>Tab" ];
+      switch-windows = [ "<Alt>Tab" ];
+      switch-windows-backward = [ "<Shift><Alt>Tab" ];
+
+
+      toggle-fullscreen = ["F11"];
+      lower = ["<Super>Down"]; # Lower window
     };
 
+    "org/gnome/settings-daemon/plugins/media-keys" =
+    {
+      screenreader = [];
+
+      home = ["<Super>e"]; # Open file explorer
+      www = ["<Super>f"]; # Open web browser
+      control-center = ["<Super>i"]; # Open settings
+
+      logout = ["<Control><Alt>BackSpace"]; # Power off
+
+      custom-keybindings = [
+        "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"
+        "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/"
+      ]; # List of custom keybindings
+    };
+
+    "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" =
+    {
+      binding = "<Super>t";
+      command = "gnome-terminal";
+      name = "Open Terminal";
+    };
+
+    "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1" =
+    {
+      binding = "<Control><Alt>Delete";
+      command = "nix run nixpkgs#resources";
+      name = "Open Resources app to force quit applications";
+    };
   };
 }

@@ -132,7 +132,7 @@
     gcc-arm-embedded
  
 
-
+    kicad-small
     discord
     zoom-us
     slack

@@ -6,7 +6,8 @@
 
     imports =
     [
-      ./dconf.nix  
+      ./dconf.nix 
+      ./shell.nix	 
       (import ./gnome-extensions.nix {
         inherit pkgs;
        })
@@ -81,6 +82,7 @@
     userEmail = "jenningsliamd@gmail.com";
     extraConfig = {
       core.editor = "vim";
+      help.autocorrect = 30;
     };
   };
 

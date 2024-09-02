@@ -20,6 +20,11 @@
 
     neofetch
     vlc
+    # vlc-bittorrent
+    openai-whisper
+    orca-slicer
+    yt-dlp
+    ncdu
     # archives
     zip
     xz
@@ -94,6 +99,9 @@
       llvm-vs-code-extensions.vscode-clangd
     ];
   };
+
+  # home.sessionVariables.VLC_PLUGIN_PATH = "${pkgs.vlc-bittorrent}";
+  # programs.vlc-bittorrent.enable= true;
 
  
 

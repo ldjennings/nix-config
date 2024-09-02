@@ -43,6 +43,12 @@
       ffmpeg
       libudev0-shim
 
+      libGL
+      # libfuse
+      #libicu
+      #icu-libs
+      icu
+
       flac
       freeglut
       libjpeg

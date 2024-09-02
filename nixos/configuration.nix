@@ -128,13 +128,20 @@
     gcc
     clang
     gnumake
-  
+    python312Packages.pip
+    python312
+    pipx
+    loupe
+    bash
+    fuse
+    love
+ 
     # Note: nix-rebuild was hanging when trying to install and build both of these from source. If issues like
     # this are encountered, comment out stm32cubemx, rebuild, and uncomment it 
     stm32cubemx
     gcc-arm-embedded
  
-
+    intel-gpu-tools
     kicad-small
     discord
     zoom-us
@@ -152,7 +159,24 @@
 
   programs.steam.enable = true;
 
+  services.flatpak.enable = true;
+
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
+
+
+  nixpkgs.config.packageOverrides = pkgs: {
+    intel-vaapi-driver = pkgs.intel-vaapi-driver.override { enableHybridCodec = true; };
+  };
+  hardware.opengl = { # hardware.graphics on unstable
+    enable = true;
+    extraPackages = with pkgs; [
+      intel-media-driver # LIBVA_DRIVER_NAME=iHD
+      intel-vaapi-driver # LIBVA_DRIVER_NAME=i965 (older but works better for Firefox/Chromium)
+      libvdpau-va-gl
+    ];
+  };
+  environment.sessionVariables = { LIBVA_DRIVER_NAME = "iHD"; }; # Force intel-media-driver
+
 
   services.fstrim.enable = true; # Disk
 

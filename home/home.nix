@@ -11,6 +11,9 @@
       (import ./gnome-extensions.nix {
         inherit pkgs;
        })
+      (import ./vim.nix {
+        inherit pkgs;
+       })
     ];
 
   # Packages that should be installed to the user profile.

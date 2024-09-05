@@ -139,7 +139,8 @@
     # Note: nix-rebuild was hanging when trying to install and build both of these from source. If issues like
     # this are encountered, comment out stm32cubemx, rebuild, and uncomment it 
     stm32cubemx
-    gcc-arm-embedded
+    #gcc-arm-embedded
+    gcc-arm-embedded-13
  
     intel-gpu-tools
     kicad-small

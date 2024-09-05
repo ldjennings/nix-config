@@ -4,12 +4,26 @@
 
   programs.vim = {
     enable = true;
-    plugins = with pkgs.vimPlugins; [ vim-airline ];
+    plugins = with pkgs.vimPlugins; [ vim-airline vim-visual-multi];
     settings = { ignorecase = true; };
     extraConfig = ''
-	set expandtab
-	set tabstop=4
-	set shiftwidth=4
+      " tab controls
+      set expandtab
+      set tabstop=4
+      set shiftwidth=4
+
+      " relative line numbers
+      set relativenumber
+
+      " Syntax highlighting
+      syntax on
+
+      " autoindent
+      set smartindent
+
+      " Search Settings
+      set hlsearch
+      set smartcase
     '';
   };
 }

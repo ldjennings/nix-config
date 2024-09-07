@@ -20,9 +20,8 @@
         inherit pkgs;
       })
       (import ./graphics.nix {
-        inherit ...;
+        inherit pkgs;
       })
-
 
     ];
 

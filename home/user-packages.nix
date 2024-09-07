@@ -5,7 +5,20 @@
   home.packages = with pkgs; [
     # here is some command line tools I use frequently
     # feel free to add your own or remove some of them
+    kicad-small
+    discord
+    zoom-us
+    slack
+    jetbrains-toolbox
+    spotify
+    obsidian
 
+    # Note: nix-rebuild was hanging when trying to install and build both of these from source. If issues like
+    # this are encountered, comment out stm32cubemx, rebuild, and uncomment it 
+    stm32cubemx
+    #gcc-arm-embedded
+    gcc-arm-embedded-13
+ 
     neofetch
     vlc
     # vlc-bittorrent

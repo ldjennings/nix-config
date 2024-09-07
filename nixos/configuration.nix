@@ -12,11 +12,18 @@
       ./virtualization.nix
       (import ./gnome.nix {
         inherit pkgs;
-       })
+      })
       (import ./nix-ld.nix {
         inherit pkgs;
-       })
- 
+      })
+      (import ./packages.nix {
+        inherit pkgs;
+      })
+      (import ./graphics.nix {
+        inherit ...;
+      })
+
+
     ];
 
 
@@ -65,7 +72,7 @@
   # Enable the X11 windowing system.
   # services.xserver.enable = true;
 
-
+  # fingerprint sensor service
   services.fprintd.enable = true;	 
 
   # Configure keymap in X11
@@ -118,42 +125,6 @@
   # Enable flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    wget
-    git
-    zsh
-    gcc
-    clang
-    gnumake
-    python312Packages.pip
-    python312
-    pipx
-    loupe
-    bash
-    fuse
-    love
- 
-    # Note: nix-rebuild was hanging when trying to install and build both of these from source. If issues like
-    # this are encountered, comment out stm32cubemx, rebuild, and uncomment it 
-    stm32cubemx
-    #gcc-arm-embedded
-    gcc-arm-embedded-13
- 
-    intel-gpu-tools
-    kicad-small
-    discord
-    zoom-us
-    slack
-    jetbrains-toolbox
-    spotify
-    obsidian
-    home-manager
-    lf
-  ];
-
   programs.zsh.enable = true;
   programs.zsh.ohMyZsh.enable = true;
   
@@ -164,19 +135,6 @@
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
-
-  nixpkgs.config.packageOverrides = pkgs: {
-    intel-vaapi-driver = pkgs.intel-vaapi-driver.override { enableHybridCodec = true; };
-  };
-  hardware.opengl = { # hardware.graphics on unstable
-    enable = true;
-    extraPackages = with pkgs; [
-      intel-media-driver # LIBVA_DRIVER_NAME=iHD
-      intel-vaapi-driver # LIBVA_DRIVER_NAME=i965 (older but works better for Firefox/Chromium)
-      libvdpau-va-gl
-    ];
-  };
-  environment.sessionVariables = { LIBVA_DRIVER_NAME = "iHD"; }; # Force intel-media-driver
 
 
   services.fstrim.enable = true; # Disk

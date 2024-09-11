@@ -34,10 +34,19 @@
   programs.vscode =
   {
     enable = true;
+ #   enableUpdateCheck = false;
+ #   enableExtensionUpdateCheck = false;
+    
     extensions = with pkgs.vscode-extensions; [
       usernamehw.errorlens
       llvm-vs-code-extensions.vscode-clangd
+#      platformio.platformio-ide
     ];
+  
+    userSettings = {
+  #    "window.titleBarStyle" = "custom";
+  #    "files.autoSave" = "afterDelay";
+    };
   };
 
   # home.sessionVariables.VLC_PLUGIN_PATH = "${pkgs.vlc-bittorrent}";

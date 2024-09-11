@@ -4,6 +4,8 @@
 
 { config, pkgs, inputsadd, ... }:
 
+
+
 {
   imports =
     [ # Include the results of the hardware scan.
@@ -22,11 +24,13 @@
       (import ./graphics.nix {
         inherit pkgs;
       })
-
+      (import ./nix-ld.nix {
+        inherit pkgs;
+      })
+      
     ];
 
 
-  # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 

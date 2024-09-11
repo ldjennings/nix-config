@@ -1,12 +1,11 @@
-{ pkgs, ... }:
+{ lib, pkgs, ... }:
 
 {
-
   home.packages = with pkgs.gnomeExtensions;
   [
     kimpanel
     clipboard-indicator
-    wallhub
+    wallpaper-slideshow
   ];
 
   dconf.settings =
@@ -18,9 +17,9 @@
 
       enabled-extensions =
       [
-	pkgs.gnomeExtensions.kimpanel.extensionUuid	
-	pkgs.gnomeExtensions.clipboard-indicator.extensionUuid
-	pkgs.gnomeExtensions.wallhub.extensionUuid	
+    	pkgs.gnomeExtensions.kimpanel.extensionUuid	
+    	pkgs.gnomeExtensions.clipboard-indicator.extensionUuid
+    	pkgs.gnomeExtensions.wallpaper-slideshow.extensionUuid	
       ];
     };
 

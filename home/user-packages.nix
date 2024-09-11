@@ -3,8 +3,7 @@
 {
   # Packages that should be installed to the user profile.
   home.packages = with pkgs; [
-    # here is some command line tools I use frequently
-    # feel free to add your own or remove some of them
+    # liam's personal packages
     kicad-small
     discord
     zoom-us
@@ -12,13 +11,16 @@
     jetbrains-toolbox
     spotify
     obsidian
+    gimp
 
     # Note: nix-rebuild was hanging when trying to install and build both of these from source. If issues like
     # this are encountered, comment out stm32cubemx, rebuild, and uncomment it 
     stm32cubemx
     #gcc-arm-embedded
     gcc-arm-embedded-13
- 
+
+    # here is some command line tools I use frequently
+    # feel free to add your own or remove some of them
     neofetch
     vlc
     # vlc-bittorrent

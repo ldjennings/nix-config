@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ lib, config, pkgs, ... }:
 
 {
   home.username = "liam";
@@ -13,6 +13,7 @@
       ./shell.nix	 
       (import ./gnome-extensions.nix {
         inherit pkgs;
+        inherit lib;
        })
       (import ./vim.nix {
         inherit pkgs;

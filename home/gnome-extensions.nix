@@ -30,5 +30,13 @@
       enable-keybindings = false;
       history-size = 30;
     };
+    "org/gnome/shell/extensions/azwallpaper" = # wallpaper slideshow
+    {
+      slideshow-directory="/home/liam/nix-config/resources";
+
+      slideshow-slide-duration = lib.hm.gvariant.mkTuple [ 0 0 10 ];
+
+      slideshow-use-absolute-time-for-duration=true;
+    };
   };
 }

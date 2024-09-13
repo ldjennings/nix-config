@@ -63,15 +63,17 @@
   };
 
   i18n.inputMethod = {
-     enabled = "fcitx5";
-     fcitx5.waylandFrontend = true;
-     fcitx5.addons = with pkgs; [
-       fcitx5-gtk             # alternatively, kdePackages.fcitx5-qt
-       fcitx5-chinese-addons  # table input method support
-       fcitx5-nord            # a color theme
-     ];
-   };
+    enabled = "fcitx5";
+    fcitx5.waylandFrontend = true;
+    fcitx5.addons = with pkgs; [
+      fcitx5-gtk             # alternatively, kdePackages.fcitx5-qt
+      fcitx5-chinese-addons  # table input method support
+      fcitx5-nord            # a color theme
+    ];
+  };
 
+
+  fonts.packages = with pkgs; [noto-fonts noto-fonts-extra noto-fonts-cjk-sans noto-fonts-cjk-serif];
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.liam = {

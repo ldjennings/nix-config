@@ -18,7 +18,10 @@
     bash
     fuse
     love
- 
+    dwarfs
+    wineWowPackages.stagingFull
+    fuse-overlayfs
+    bubblewrap
 
     intel-gpu-tools
     home-manager

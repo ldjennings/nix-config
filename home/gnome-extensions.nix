@@ -6,6 +6,7 @@
     kimpanel
     clipboard-indicator
     wallpaper-slideshow
+#    system-monitor
   ];
 
   dconf.settings =
@@ -19,7 +20,8 @@
       [
     	pkgs.gnomeExtensions.kimpanel.extensionUuid	
     	pkgs.gnomeExtensions.clipboard-indicator.extensionUuid
-    	pkgs.gnomeExtensions.wallpaper-slideshow.extensionUuid	
+    	pkgs.gnomeExtensions.wallpaper-slideshow.extensionUuid	 
+ #   	pkgs.gnomeExtensions.system-monitor.extensionUuid	
       ];
     };
 
@@ -34,7 +36,7 @@
     {
       slideshow-directory="/home/liam/nix-config/resources";
 
-      slideshow-slide-duration = lib.hm.gvariant.mkTuple [ 0 0 10 ];
+      slideshow-slide-duration = lib.hm.gvariant.mkTuple [ 0 0 90 ];
 
       slideshow-use-absolute-time-for-duration=true;
     };

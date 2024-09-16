@@ -1,5 +1,4 @@
 { pkgs  }:
-
 {
   # Packages that should be installed to the user profile.
   home.packages = with pkgs; [
@@ -12,7 +11,7 @@
     spotify
     obsidian
     gimp
-
+    qbittorrent
     # Note: nix-rebuild was hanging when trying to install and build both of these from source. If issues like
     # this are encountered, comment out stm32cubemx, rebuild, and uncomment it 
     stm32cubemx

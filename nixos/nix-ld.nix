@@ -24,6 +24,7 @@
 
       glib
       gtk2
+      gtk3
 
       xorg.libXinerama
       xorg.libXcursor
@@ -32,6 +33,9 @@
       xorg.libXi
       xorg.libSM
       xorg.libICE
+      xorg.libXext
+      xorg.libX11
+      xorg.libXtst
       gnome2.GConf
       nspr
       nss

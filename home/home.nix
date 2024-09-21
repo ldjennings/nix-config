@@ -40,6 +40,7 @@
     extensions = with pkgs.vscode-extensions; [
       usernamehw.errorlens
       llvm-vs-code-extensions.vscode-clangd
+      jnoortheen.nix-ide
 #      platformio.platformio-ide
     ];
   

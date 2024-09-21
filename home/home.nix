@@ -41,6 +41,7 @@
       usernamehw.errorlens
       llvm-vs-code-extensions.vscode-clangd
       jnoortheen.nix-ide
+      eamodio.gitlens
 #      platformio.platformio-ide
     ];
   

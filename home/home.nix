@@ -43,6 +43,16 @@
       usernamehw.errorlens
       llvm-vs-code-extensions.vscode-clangd
       jnoortheen.nix-ide
+
+      # ms-vscode.cpptools
+      redhat.java
+      vscjava.vscode-java-debug
+
+      rust-lang.rust-analyzer
+      bungcip.better-toml
+
+      ms-python.python
+      # ms-python.vscode-pylance
     ];
   
     userSettings = {

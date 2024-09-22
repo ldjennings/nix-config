@@ -36,6 +36,8 @@
     enable = true;
     enableUpdateCheck = false;
     enableExtensionUpdateCheck = false; 
+
+    package = pkgs.vscodium;
   
     extensions = with pkgs.vscode-extensions; [
       usernamehw.errorlens

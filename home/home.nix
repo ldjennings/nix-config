@@ -8,14 +8,21 @@
     [
       (import ./user-packages.nix {
        inherit pkgs;
-      }) 
-      ./dconf.nix 
-      ./shell.nix	 
+      })
+
+      ./dconf.nix
+      ./shell.nix
+
       (import ./gnome-extensions.nix {
         inherit pkgs;
         inherit lib;
        })
+
       (import ./vim.nix {
+        inherit pkgs;
+      })
+
+      (import ./vscode.nix {
         inherit pkgs;
       })
    ];
@@ -31,25 +38,7 @@
     };
   };
 
-  programs.vscode =
-  {
-    enable = true;
- #   enableUpdateCheck = false;
- #   enableExtensionUpdateCheck = false;
-    
-    extensions = with pkgs.vscode-extensions; [
-      usernamehw.errorlens
-      llvm-vs-code-extensions.vscode-clangd
-      jnoortheen.nix-ide
-      eamodio.gitlens
-#      platformio.platformio-ide
-    ];
-  
-    userSettings = {
-  #    "window.titleBarStyle" = "custom";
-  #    "files.autoSave" = "afterDelay";
-    };
-  };
+
 
   # home.sessionVariables.VLC_PLUGIN_PATH = "${pkgs.vlc-bittorrent}";
   # programs.vlc-bittorrent.enable= true;

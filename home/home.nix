@@ -56,9 +56,10 @@
     ];
   
     userSettings = {
-     "window.titleBarStyle" = "custom";
-     "files.autoSave" = "afterDelay";
-     "files.autoSaveDelay" = 100;
+      "window.titleBarStyle" = "custom";
+      "files.autoSave" = "afterDelay";
+      "files.autoSaveDelay" = 100;
+      "clangd.path" = "/home/liam/.config/VSCodium/User/globalStorage/llvm-vs-code-extensions.vscode-clangd/install/18.1.3/clangd_18.1.3/bin/clangd";
     };
   };
 

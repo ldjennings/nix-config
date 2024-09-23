@@ -22,6 +22,7 @@
     wineWowPackages.stagingFull
     fuse-overlayfs
     bubblewrap
+    chromium
 
     intel-gpu-tools
     home-manager

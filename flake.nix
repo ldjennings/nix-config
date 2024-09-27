@@ -24,7 +24,7 @@
 
   outputs = inputs@{ nixpkgs, home-manager, firefox-addons, nixos-hardware, ... }: {
     nixosConfigurations = {
-      nixos = nixpkgs.lib.nixosSystem {
+      selfdestruction = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
 	        ./nixos/configuration.nix

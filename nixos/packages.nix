@@ -9,7 +9,6 @@
     git
     zsh
     gcc
-    clang
     gnumake
     python312Packages.pip
     python312
@@ -23,6 +22,12 @@
     fuse-overlayfs
     bubblewrap
     chromium
+
+    # Development
+    nil
+    alejandra
+    clang-tools
+
 
     intel-gpu-tools
     home-manager

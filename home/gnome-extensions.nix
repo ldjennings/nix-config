@@ -21,7 +21,7 @@
     	pkgs.gnomeExtensions.kimpanel.extensionUuid	
     	pkgs.gnomeExtensions.clipboard-indicator.extensionUuid
     	pkgs.gnomeExtensions.wallpaper-slideshow.extensionUuid	 
- #   	pkgs.gnomeExtensions.system-monitor.extensionUuid	
+    	pkgs.gnomeExtensions.system-monitor.extensionUuid	
       ];
     };
 

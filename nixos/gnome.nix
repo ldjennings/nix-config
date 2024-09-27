@@ -6,6 +6,7 @@
 {
   # Enable the GNOME Desktop Environment.
   services = {
+    gnome-keyring.enable = true;
     xserver = {
       enable = true;
       desktopManager.gnome = {

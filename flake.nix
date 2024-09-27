@@ -24,11 +24,10 @@
 
   outputs = inputs@{ nixpkgs, home-manager, firefox-addons, nixos-hardware, ... }: {
     nixosConfigurations = {
-      # TODO please change the hostname to your own
       nixos = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
-	  ./nixos/configuration.nix
+	        ./nixos/configuration.nix
           (import ./nixos/firefox.nix {
             inherit firefox-addons;
           })

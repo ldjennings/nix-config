@@ -12,6 +12,7 @@
     obsidian
     gimp
     qbittorrent
+    gnome.dconf-editor
 
     # Note: nix-rebuild was hanging when trying to install and build both of these from source. If issues like
     # this are encountered, comment out stm32cubemx, rebuild, and uncomment it 

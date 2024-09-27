@@ -32,9 +32,10 @@
 
 
   boot.loader.systemd-boot.enable = true;
+  boot.loader.systemd-boot.consoleMode = "0";
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "nixos"; # Define your hostname.
+  networking.hostName = "self_destruction"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -73,7 +74,17 @@
   };
 
 
-  fonts.packages = with pkgs; [noto-fonts noto-fonts-extra noto-fonts-cjk-sans noto-fonts-cjk-serif];
+ fonts.fontDir.enable = true;
+ fonts = {
+    packages = with pkgs; [
+      noto-fonts
+      noto-fonts-extra 
+      noto-fonts-cjk-sans 
+      noto-fonts-cjk-serif
+      noto-fonts-emoji
+    ];
+  };
+
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.liam = {
@@ -81,9 +92,6 @@
     description = "liam";
     extraGroups = [ "networkmanager" "wheel" ];
     shell = pkgs.zsh;
-    packages = with pkgs; [
-    #  thunderbird
-    ];
   };
 
   # Enable sound with pipewire. Configured further in the services section
@@ -150,6 +158,16 @@
   # services.flatpak.enable = true;
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
+
+  boot.initrd.systemd.enable = true;
+  boot.plymouth.enable = true;
+  boot.plymouth.logo ="/home/liam/Downloads/test.png"; 
+
+  boot.initrd.verbose = false;
+  boot.consoleLogLevel = 0;
+
+
+  boot.tmp.cleanOnBoot = true;
 
 
 

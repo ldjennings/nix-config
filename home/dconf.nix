@@ -12,7 +12,10 @@
     	  "codium.desktop"
        ];
     };
-
+    "org/gnome/settings-daemon/peripherals/keyboard" =
+    {
+      bell-mode = "off";
+    }; 
     "org/gnome/desktop/interface" =
     {
       color-scheme = "prefer-dark";

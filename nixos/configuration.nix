@@ -32,13 +32,15 @@
 
 
   # boot.loader.systemd-boot.enable = true;
-  # boot.loader.systemd-boot.consoleMode = "0";
+  boot.loader.systemd-boot.consoleMode = "0";
   # boot.loader.efi.canTouchEfiVariables = true;
     boot.loader.efi.canTouchEfiVariables = true;
     boot.loader.grub.enable = true;
     boot.loader.grub.device = "nodev";
     boot.loader.grub.useOSProber = true;
     boot.loader.grub.efiSupport = true;
+    boot.loader.grub.splashImage = "/home/liam/Downloads/cited.png";
+    boot.loader.grub.timeoutStyle = "hidden";
 
   networking.hostName = "selfdestruction"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -164,12 +166,12 @@
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
-  boot.initrd.systemd.enable = true;
-  boot.plymouth.enable = true;
-  boot.plymouth.logo ="/home/liam/Downloads/test.png"; 
+  # boot.initrd.systemd.enable = true;
+  # boot.plymouth.enable = true;
+  # boot.plymouth.logo ="/home/liam/Downloads/test.png"; 
 
-  boot.initrd.verbose = false;
-  boot.consoleLogLevel = 0;
+  # boot.initrd.verbose = false;
+  # boot.consoleLogLevel = 0;
 
 
   boot.tmp.cleanOnBoot = true;

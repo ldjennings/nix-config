@@ -1,4 +1,4 @@
-{ ... }:
+{ lib, ... }:
 {
   dconf.settings =
   {
@@ -39,6 +39,10 @@
       edge-tiling = true;
     };
 
+    "org/gnome/desktop/peripherals/touchpad" =
+    { 
+      speed = lib.hm.gvariant.mkDouble 0.38461538461538458;
+    };
 
     "org/gnome/desktop/privacy" =
     {

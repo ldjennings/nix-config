@@ -10,7 +10,10 @@
        inherit pkgs;
       })
 
-      ./dconf.nix
+      (import ./dconf.nix {
+       inherit lib;
+      })
+      
       ./shell.nix
 
       (import ./gnome-extensions.nix {

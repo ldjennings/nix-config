@@ -30,16 +30,14 @@
       
     ];
 
-
-  # boot.loader.systemd-boot.enable = true;
-  boot.loader.systemd-boot.consoleMode = "0";
-  # boot.loader.efi.canTouchEfiVariables = true;
+    # TODO: make boot and shutdown entirely silent
     boot.loader.efi.canTouchEfiVariables = true;
     boot.loader.grub.enable = true;
     boot.loader.grub.device = "nodev";
     boot.loader.grub.useOSProber = true;
     boot.loader.grub.efiSupport = true;
     boot.loader.grub.splashImage = "/home/liam/Downloads/cited.png";
+    # This makes it so you need to hold esc to access the options
     boot.loader.grub.timeoutStyle = "hidden";
 
   networking.hostName = "selfdestruction"; # Define your hostname.
@@ -112,7 +110,7 @@
     flatpak.enable = true;
     
     # fingerprint sensor service
-    fprintd.enable = true;	 
+    fprintd.enable = false;
     
     # Enable CUPS to print documents
     printing.enable = true;
@@ -162,28 +160,14 @@
 
   programs.steam.enable = true;
 
-  # services.flatpak.enable = true;
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
-  # boot.initrd.systemd.enable = true;
-  # boot.plymouth.enable = true;
-  # boot.plymouth.logo ="/home/liam/Downloads/test.png"; 
-
-  # boot.initrd.verbose = false;
-  # boot.consoleLogLevel = 0;
 
 
   boot.tmp.cleanOnBoot = true;
 
 
-
- # services.fstrim.enable = true; # Disk
-
-#  services.fwupd = # Bios updates
-#  {
-#    enable = true;
-#  };
 
 
   # Some programs need SUID wrappers, can be configured further or are

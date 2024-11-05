@@ -112,11 +112,5 @@ in
     pciutils # lspci
     usbutils # lsusb
   ];
-
-
-  # Apply the overlay in home-manager environment
-  # nixpkgs.overlays = [
-    # cubeOverlay  # Add the custom overlay to the list of overlays
-  # ];
 }
 

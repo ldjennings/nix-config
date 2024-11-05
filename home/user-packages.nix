@@ -1,4 +1,26 @@
-{ pkgs  }:
+{ pkgs, ... }:
+
+let
+  # Define the overlay for stm32cubemx
+  # cubeOverlay = self: super: {
+    # stm32cubemx = super.stdenvNoCC.mkDerivation rec {
+      # pname = "stm32cubemx";
+      # version = "6.12.1";  # New version
+      # src = super.fetchzip {
+        # url = "https://sw-center.st.com/packs/resource/library/stm32cube_mx_v${builtins.replaceStrings ["."] [""] version}-lin.zip";
+        # hash = "sha256-e1b914f43795cf60a4ec6e38513478cd18208b08a11c16eeaea4b9a478fe60ae";  # Correct sha256 hash for 6.12.1
+        # stripRoot = false;
+      # };
+    # };
+  # };
+# 
+  # cube = import <nixpkgs> {
+    # overlays = [ cubeOverlay ];  # Apply overlay to nixpkgs
+  # };
+
+  unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
+
+in
 {
   # Packages that should be installed to the user profile.
   home.packages = with pkgs; [
@@ -14,11 +36,13 @@
     qbittorrent
     gnome.dconf-editor
     calibre
+    unstable.freecad
 
-    # Note: nix-rebuild was hanging when trying to install and build both of these from source. If issues like
-    # this are encountered, comment out stm32cubemx, rebuild, and uncomment it 
-    #stm32cubemx
-    #gcc-arm-embedded
+    # Uncomment to install stm32cubemx with the overlay applied
+    # stm32cubemx
+    stm32cubemx
+
+    # Ensure gcc-arm-embedded is included (specify the exact version if necessary)
     gcc-arm-embedded-13
     kicad
 
@@ -90,5 +114,9 @@
   ];
 
 
-
+  # Apply the overlay in home-manager environment
+  # nixpkgs.overlays = [
+    # cubeOverlay  # Add the custom overlay to the list of overlays
+  # ];
 }
+

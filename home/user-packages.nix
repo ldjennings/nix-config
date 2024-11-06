@@ -37,6 +37,7 @@ in
     gnome.dconf-editor
     calibre
     unstable.freecad
+    bear
 
     # Uncomment to install stm32cubemx with the overlay applied
     # stm32cubemx

@@ -40,7 +40,7 @@ in
 
     # Uncomment to install stm32cubemx with the overlay applied
     # stm32cubemx
-    stm32cubemx
+    # stm32cubemx
 
     # Ensure gcc-arm-embedded is included (specify the exact version if necessary)
     gcc-arm-embedded-13

@@ -163,6 +163,9 @@
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
+  # HACK: this is to get around the old version of stm32cubemx.
+  environment.variables = {CUBEMX_COMMAND = "steam-run /home/liam/STM32CubeMX/STM32CubeMX";};
+
 
 
   boot.tmp.cleanOnBoot = true;

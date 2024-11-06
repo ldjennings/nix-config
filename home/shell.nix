@@ -4,6 +4,7 @@ let
   # Use absolute paths or expand home directory correctly
   celeste_path = "/home/liam/Documents/celeste-linux/Celeste";
   obsidian_dir = "/home/liam/obsidian";
+  cubemx_path  = "/home/liam/STM32CubeMX/STM32CubeMX";
 in
 {
 
@@ -42,6 +43,7 @@ in
 
           synco = "cd ${obsidian_dir} && git add -v . && git commit -m 'automatic laptop commit' && git push; cd - > /dev/null";
           pullo = "cd ${obsidian_dir} && git pull; cd - > /dev/null";
+          stm32cubemx = "steam-run ${cubemx_path}";
         };
 
 

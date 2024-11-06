@@ -36,7 +36,7 @@
     boot.loader.grub.device = "nodev";
     boot.loader.grub.useOSProber = true;
     boot.loader.grub.efiSupport = true;
-    boot.loader.grub.splashImage = "/home/liam/Downloads/cited.png";
+    boot.loader.grub.splashImage = "/home/liam/nix-config/resources/cited.png";
     # This makes it so you need to hold esc to access the options
     boot.loader.grub.timeoutStyle = "hidden";
 

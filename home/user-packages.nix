@@ -1,6 +1,6 @@
 { pkgs, ... }:
 
-let
+# let
   # Define the overlay for stm32cubemx
   # cubeOverlay = self: super: {
     # stm32cubemx = super.stdenvNoCC.mkDerivation rec {
@@ -20,7 +20,7 @@ let
 
   # unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
 
-in
+# in
 {
   # Packages that should be installed to the user profile.
   home.packages = with pkgs; [

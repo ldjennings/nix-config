@@ -99,5 +99,9 @@
       command = "nix run nixpkgs#resources";
       name = "Open Resources app to force quit applications";
     };
+
+    "org/gnome/desktop/interface" = {
+      text-scaling-factor = 1.4000000000000004;
+    };
   };
 }

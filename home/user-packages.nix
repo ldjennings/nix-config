@@ -18,7 +18,7 @@ let
     # overlays = [ cubeOverlay ];  # Apply overlay to nixpkgs
   # };
 
-  unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
+  # unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
 
 in
 {
@@ -36,7 +36,8 @@ in
     qbittorrent
     gnome.dconf-editor
     calibre
-    unstable.freecad
+    # unstable.freecad
+    freecad
     bear
 
     # Uncomment to install stm32cubemx with the overlay applied

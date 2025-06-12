@@ -9,3 +9,5 @@
 
 
 To test build, use `nix build .#nixosConfigurations.fridge.config.system.build.toplevel`
+
+based off of zaneyos

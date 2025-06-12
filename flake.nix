@@ -9,8 +9,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nvf.url = "github:notashelf/nvf";
 
-    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+
+    # nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
   };
 
@@ -33,7 +35,7 @@
         modules = [
           ./hosts/${host}
           ./modules/core
-          ./modules/driver
+          ./modules/drivers
         ];
       };
       # selfdestruction = nixpkgs.lib.nixosSystem {

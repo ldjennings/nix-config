@@ -7,13 +7,13 @@
     # openssh.enable = true; # Enable SSH
     gnome.gnome-keyring.enable = true;
 
-    services.openssh = {
+    openssh = {
       enable = true;
       settings.PasswordAuthentication = false;
       settings.KbdInteractiveAuthentication = false;
     };
     
-    services.tailscale = {
+    tailscale = {
       enable = true;
     };
 

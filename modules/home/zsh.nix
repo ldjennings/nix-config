@@ -1,4 +1,4 @@
-{profile, ...}: {
+{host, ...}: {
   programs = {
     zsh = {
       enable = true;
@@ -30,9 +30,9 @@
         sv = "sudo nvim";
         v = "nvim";
         c = "clear";
-        fr = "nh os switch --hostname ${profile}";
-        fu = "nh os switch --hostname ${profile} --update";
-        ft = "nh os test --hostname ${profile}";
+        fr = "nh os switch --hostname ${host}";
+        fu = "nh os switch --hostname ${host} --update";
+        ft = "nh os test --hostname ${host}";
         ncg = "nix-collect-garbage --delete-old && sudo nix-collect-garbage -d && sudo /run/current-system/bin/switch-to-configuration boot";
         cat = "bat";
         man = "batman";

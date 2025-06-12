@@ -57,9 +57,9 @@
     # with more details log output
     nix-output-monitor
 
-    btop  # replacement of htop/nmon
     iotop # io monitoring
     iftop # network monitoring
+
 
     # system call monitoring
     strace # system call monitoring

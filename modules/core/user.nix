@@ -3,7 +3,7 @@
   inputs,
   username,
   host,
-  profile,
+  # profile,
   ...
 }: {
   imports = [inputs.home-manager.nixosModules.home-manager];
@@ -11,7 +11,7 @@
     useUserPackages = true;
     useGlobalPkgs = false;
     backupFileExtension = "backup";
-    extraSpecialArgs = {inherit inputs username host profile;};
+    extraSpecialArgs = {inherit inputs username host;};
     users.${username} = {
       imports = [./../home];
       home = {

@@ -14,7 +14,7 @@
     ./git.nix
     ./htop.nix
     ./lazygit.nix
-    ./nvf.nix
+    # ./nvf.nix
     ./user-packages.nix
     ./zoxide.nix
     ./zsh.nix

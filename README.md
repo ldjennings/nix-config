@@ -10,4 +10,4 @@
 
 To test build, use `nix build .#nixosConfigurations.fridge.config.system.build.toplevel`
 
-based off of zaneyos
+based off of [zaneyos](https://gitlab.com/Zaney/zaneyos)

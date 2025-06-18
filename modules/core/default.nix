@@ -7,7 +7,9 @@
     ./greetd.nix
     ./hardware-options.nix
     ./mediaServer.nix
+    ./monitoring.nix
     ./networking.nix
+    ./nginx.nix
     ./nfs.nix
     ./nh.nix
     ./packages.nix

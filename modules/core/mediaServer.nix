@@ -127,7 +127,7 @@ in {
     # Always prioritize other services wrt. I/O
     systemd.services.transmission.serviceConfig.IOSchedulingPriority = 7;
     environment.systemPackages = [
-      pkgs.unstable.flood-for-transmission
+      pkgs.flood-for-transmission
     ];
 
     systemd.network.wait-online.enable = false;

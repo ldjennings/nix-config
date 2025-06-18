@@ -6,6 +6,7 @@
     ./boot.nix
     ./greetd.nix
     ./hardware-options.nix
+    ./mediaServer.nix
     ./networking.nix
     ./nfs.nix
     ./nh.nix

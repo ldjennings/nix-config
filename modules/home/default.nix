@@ -16,6 +16,7 @@
     ./lazygit.nix
     # ./nvf.nix
     ./user-packages.nix
+    ./vim.nix
     ./zoxide.nix
     ./zsh.nix
   ];

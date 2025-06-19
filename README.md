@@ -11,3 +11,13 @@
 To test build, use `nix build .#nixosConfigurations.fridge.config.system.build.toplevel`
 
 based off of [zaneyos](https://gitlab.com/Zaney/zaneyos)
+
+
+
+### Setup
+
+REPLACE `hosts/fridge/hardware-configuration.nix` WITH THE COMPUTER'S
+
+add `nix.settings.experimental-features = [ "nix-command" "flakes" ];` to `/etc/nixos/configuration.nix`
+
+run `sudo nixos-rebuild --flake .#fridge switch` in this directory

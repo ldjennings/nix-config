@@ -16,9 +16,9 @@
       settings.KbdInteractiveAuthentication = false;
     };
     
-    # tailscale = {
-    #   enable = true;
-    # };
+    tailscale = {
+      enable = true;
+    };
 
     tlp = {
       enable = true;

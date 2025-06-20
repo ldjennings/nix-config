@@ -9,7 +9,7 @@
     settings = {
       default_session = {
         user = username;
-        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time";
+        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time $SHELL";
       };
     };
   };

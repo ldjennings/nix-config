@@ -6,6 +6,8 @@
     ./boot.nix
     ./greetd.nix
     ./hardware-options.nix
+    # ./immich-docker.nix
+    ./docker-servers
     ./keyd.nix
     ./mediaServer.nix
     ./monitoring.nix

@@ -1,7 +1,11 @@
 # Auto-generated using compose2nix v0.3.2-pre.
 { pkgs, lib, config, ... }:
 
-{
+ {
+
+    # Create the directories that the services will need with the correct permissions
+
+
   # Runtime
   virtualisation.podman = {
     enable = true;
@@ -66,7 +70,7 @@
       "POSTGRES_USER" = "postgres";
     };
     volumes = [
-      "/home/liam/Documents/postgres:/var/lib/postgresql/data:rw"
+      "/var/lib/podData/immich/postgres:/var/lib/postgresql/data:rw"
     ];
     log-driver = "journald";
     extraOptions = [
@@ -129,7 +133,7 @@
     };
     volumes = [
       "/etc/localtime:/etc/localtime:ro"
-      "/home/liam/Documents/library:/usr/src/app/upload:rw"
+      "/var/lib/podData/immich/library:/usr/src/app/upload:rw"
     ];
     ports = [
       "2283:2283/tcp"
@@ -142,6 +146,7 @@
     extraOptions = [
       "--network-alias=immich-server"
       "--network=immich_default"
+      "--user=immich"
     ];
   };
   systemd.services."podman-immich_server" = {

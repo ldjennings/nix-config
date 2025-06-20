@@ -82,7 +82,7 @@ in {
     services.jellyfin = {
       enable = true;
       group = mediaGroup;
-      openFirewall = true;
+     # openFirewall = true;
     };
     # services.prowlarr = {
     #   enable = true;
@@ -97,7 +97,7 @@ in {
     #   group = mediaGroup;
     # };
     services.transmission = {
-      enable = false;
+      enable = true;
       user = "torrenter";
       group = mediaGroup;
       package = pkgs.transmission_4;
@@ -109,9 +109,11 @@ in {
         incomplete-dir = "${mediaDir}/torrents/.incomplete";
         watch-dir-enabled = true;
         watch-dir = "${mediaDir}/torrents/.watch";
+        rpc-enabled = true;
         rpc-port = transmissionPort;
-        rpc-whitelist-enabled = true;
-        # rpc-whitelist-enabled = false;
+        rpc-bind-address =  "0.0.0.0";
+        # rpc-whitelist-enabled = true;
+        rpc-whitelist-enabled = false;
         # rpc-host-whitelist-enabled = false;
         rpc-authentication-required = false;
         blocklist-enabled = true;

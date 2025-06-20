@@ -8,7 +8,7 @@
     ./direnv.nix
     ./eza.nix
     ./fastfetch.nix
-    ./formula.nix
+    # ./formula.nix
     ./fzf.nix
     ./gh.nix
     ./git.nix
@@ -17,6 +17,7 @@
     # ./nvf.nix
     ./user-packages.nix
     ./vim.nix
+    ./yazi
     ./zoxide.nix
     ./zsh.nix
   ];

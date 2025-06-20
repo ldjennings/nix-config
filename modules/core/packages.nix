@@ -30,6 +30,7 @@
     lolcat # Add Colors To Your Terminal Command Output
     lshw # Detailed Hardware Information
     ncdu # Disk Usage Analyzer With Ncurses Interface
+    nil  # for working with vscode-remote
     nixfmt-rfc-style # Nix Formatter
     pciutils # Collection Of Tools For Inspecting PCI Devices
     pkg-config # Wrapper Script For Allowing Packages To Get Info On Others

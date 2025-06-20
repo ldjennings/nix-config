@@ -6,8 +6,9 @@
     ./boot.nix
     ./greetd.nix
     ./hardware-options.nix
-    # ./mediaServer.nix
-    # ./monitoring.nix
+    ./keyd.nix
+    ./mediaServer.nix
+    ./monitoring.nix
     ./networking.nix
     # ./nginx.nix
     ./nfs.nix

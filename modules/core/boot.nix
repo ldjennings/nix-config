@@ -3,6 +3,7 @@
 {
   boot = {
     kernel.sysctl = { "vm.max_map_count" = 2147483642; };
+    kernelParams = [ "consoleblank=60" ];
     loader.systemd-boot.enable = true;
     loader.efi.canTouchEfiVariables = true;
     # Appimage Support

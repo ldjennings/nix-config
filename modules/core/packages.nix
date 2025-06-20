@@ -15,6 +15,7 @@
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
+    alejandra
     appimage-run # Needed For AppImage Support
     brightnessctl # For Screen Brightness Control
     cowsay # Great Fun Terminal Program

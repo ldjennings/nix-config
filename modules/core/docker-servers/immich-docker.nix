@@ -7,20 +7,20 @@
 
 
   # Runtime
-  virtualisation.podman = {
-    enable = true;
-    autoPrune.enable = true;
-    dockerCompat = true;
-  };
+  # virtualisation.podman = {
+  #   enable = true;
+  #   autoPrune.enable = true;
+  #   dockerCompat = true;
+  # };
 
-  # Enable container name DNS for all Podman networks.
-  networking.firewall.interfaces = let
-    matchAll = if !config.networking.nftables.enable then "podman+" else "podman*";
-  in {
-    "${matchAll}".allowedUDPPorts = [ 53 ];
-  };
+  # # Enable container name DNS for all Podman networks.
+  # networking.firewall.interfaces = let
+  #   matchAll = if !config.networking.nftables.enable then "podman+" else "podman*";
+  # in {
+  #   "${matchAll}".allowedUDPPorts = [ 53 ];
+  # };
 
-  virtualisation.oci-containers.backend = "podman";
+  # virtualisation.oci-containers.backend = "podman";
 
   # Containers
   virtualisation.oci-containers.containers."immich_machine_learning" = {
@@ -146,7 +146,7 @@
     extraOptions = [
       "--network-alias=immich-server"
       "--network=immich_default"
-      "--user=immich"
+      # "--user=immich"
     ];
   };
   systemd.services."podman-immich_server" = {

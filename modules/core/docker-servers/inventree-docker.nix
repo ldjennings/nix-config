@@ -1,55 +1,12 @@
 # Auto-generated using compose2nix v0.3.2-pre.
-{ pkgs, lib, ... }:
-
 {
-  # Runtime
-
+  pkgs,
+  lib,
+  # config,
+  ...
+}: {
 
   # Containers
-  virtualisation.oci-containers.containers."inventree-cache" = {
-    image = "redis:7.0";
-    environment = {
-      "COMPOSE_PROJECT_NAME" = "inventree";
-      "INVENTREE_AUTO_UPDATE" = "True";
-      "INVENTREE_CACHE_ENABLED" = "True";
-      "INVENTREE_CACHE_HOST" = "inventree-cache";
-      "INVENTREE_CACHE_PORT" = "6379";
-      "INVENTREE_DB_ENGINE" = "postgresql";
-      "INVENTREE_DB_HOST" = "inventree-db";
-      "INVENTREE_DB_NAME" = "inventree";
-      "INVENTREE_DB_PASSWORD" = "pgpassword";
-      "INVENTREE_DB_PORT" = "5432";
-      "INVENTREE_DB_USER" = "pguser";
-      "INVENTREE_EXT_VOLUME" = "./inventree-data";
-      "INVENTREE_GUNICORN_TIMEOUT" = "90";
-      "INVENTREE_LOG_LEVEL" = "WARNING";
-      "INVENTREE_PLUGINS_ENABLED" = "True";
-      "INVENTREE_SITE_URL" = "http://inventree.localhost";
-      "INVENTREE_TAG" = "stable";
-    };
-    log-driver = "journald";
-    extraOptions = [
-      "--network-alias=inventree-cache"
-      "--network=inventree_default"
-    ];
-  };
-  systemd.services."podman-inventree-cache" = {
-    serviceConfig = {
-      Restart = lib.mkOverride 90 "always";
-    };
-    after = [
-      "podman-network-inventree_default.service"
-    ];
-    requires = [
-      "podman-network-inventree_default.service"
-    ];
-    partOf = [
-      "podman-compose-inventree-root.target"
-    ];
-    wantedBy = [
-      "podman-compose-inventree-root.target"
-    ];
-  };
   virtualisation.oci-containers.containers."inventree-db" = {
     image = "postgres:13";
     environment = {
@@ -88,8 +45,10 @@
     image = "inventree/inventree:stable";
     environment = {
       "COMPOSE_PROJECT_NAME" = "inventree";
-      "INVENTREE_AUTO_UPDATE" = "True";
-      "INVENTREE_CACHE_ENABLED" = "True";
+      "INVENTREE_ADMIN_EMAIL" = "admin@admin.com";
+      "INVENTREE_ADMIN_PASSWORD" = "admin123321";
+      "INVENTREE_ADMIN_USER" = "admin";
+      "INVENTREE_AUTO_UPDATE" = "False";
       "INVENTREE_CACHE_HOST" = "inventree-cache";
       "INVENTREE_CACHE_PORT" = "6379";
       "INVENTREE_DB_ENGINE" = "postgresql";
@@ -98,18 +57,21 @@
       "INVENTREE_DB_PASSWORD" = "pgpassword";
       "INVENTREE_DB_PORT" = "5432";
       "INVENTREE_DB_USER" = "pguser";
-      "INVENTREE_EXT_VOLUME" = "./inventree-data";
+      "INVENTREE_DEBUG" = "False";
+      "INVENTREE_EXT_VOLUME" = "/var/lib/podData/inventree/inventree-data";
       "INVENTREE_GUNICORN_TIMEOUT" = "90";
       "INVENTREE_LOG_LEVEL" = "WARNING";
       "INVENTREE_PLUGINS_ENABLED" = "True";
-      "INVENTREE_SITE_URL" = "http://inventree.localhost";
+      "INVENTREE_SITE_URL" = "http://100.106.126.3";
       "INVENTREE_TAG" = "stable";
     };
     volumes = [
       "/var/lib/podData/inventree/inventree-data:/home/inventree/data:rw,z"
     ];
+    ports = [
+      "8000:8000/tcp"
+    ];
     dependsOn = [
-      "inventree-cache"
       "inventree-db"
     ];
     log-driver = "journald";
@@ -131,7 +93,7 @@
     partOf = [
       "podman-compose-inventree-root.target"
     ];
-    wantedBy = [" YUo./o"
+    wantedBy = [
       "podman-compose-inventree-root.target"
     ];
   };
@@ -139,8 +101,10 @@
     image = "inventree/inventree:stable";
     environment = {
       "COMPOSE_PROJECT_NAME" = "inventree";
-      "INVENTREE_AUTO_UPDATE" = "True";
-      "INVENTREE_CACHE_ENABLED" = "True";
+      "INVENTREE_ADMIN_EMAIL" = "admin@admin.com";
+      "INVENTREE_ADMIN_PASSWORD" = "admin123321";
+      "INVENTREE_ADMIN_USER" = "admin";
+      "INVENTREE_AUTO_UPDATE" = "False";
       "INVENTREE_CACHE_HOST" = "inventree-cache";
       "INVENTREE_CACHE_PORT" = "6379";
       "INVENTREE_DB_ENGINE" = "postgresql";
@@ -149,17 +113,18 @@
       "INVENTREE_DB_PASSWORD" = "pgpassword";
       "INVENTREE_DB_PORT" = "5432";
       "INVENTREE_DB_USER" = "pguser";
-      "INVENTREE_EXT_VOLUME" = "./inventree-data";
+      "INVENTREE_DEBUG" = "False";
+      "INVENTREE_EXT_VOLUME" = "/var/lib/podData/inventree/inventree-data";
       "INVENTREE_GUNICORN_TIMEOUT" = "90";
       "INVENTREE_LOG_LEVEL" = "WARNING";
       "INVENTREE_PLUGINS_ENABLED" = "True";
-      "INVENTREE_SITE_URL" = "http://inventree.localhost";
+      "INVENTREE_SITE_URL" = "http://100.106.126.3";
       "INVENTREE_TAG" = "stable";
     };
     volumes = [
       "/var/lib/podData/inventree/inventree-data:/home/inventree/data:rw,z"
     ];
-    cmd = [ "invoke" "worker" ];
+    cmd = ["invoke" "worker"];
     dependsOn = [
       "inventree-server"
     ];
@@ -189,7 +154,7 @@
 
   # Networks
   systemd.services."podman-network-inventree_default" = {
-    path = [ pkgs.podman ];
+    path = [pkgs.podman];
     serviceConfig = {
       Type = "oneshot";
       RemainAfterExit = true;
@@ -198,8 +163,8 @@
     script = ''
       podman network inspect inventree_default || podman network create inventree_default
     '';
-    partOf = [ "podman-compose-inventree-root.target" ];
-    wantedBy = [ "podman-compose-inventree-root.target" ];
+    partOf = ["podman-compose-inventree-root.target"];
+    wantedBy = ["podman-compose-inventree-root.target"];
   };
 
   # Root service
@@ -209,6 +174,6 @@
     unitConfig = {
       Description = "Root target generated by compose2nix.";
     };
-    wantedBy = [ "multi-user.target" ];
+    wantedBy = ["multi-user.target"];
   };
 }

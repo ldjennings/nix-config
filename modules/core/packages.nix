@@ -35,6 +35,7 @@
     nixfmt-rfc-style # Nix Formatter
     pciutils # Collection Of Tools For Inspecting PCI Devices
     pkg-config # Wrapper Script For Allowing Packages To Get Info On Others
+    powertop
     ripgrep # Improved Grep
     unrar # Tool For Handling .rar Files
     unzip # Tool For Handling .zip Files

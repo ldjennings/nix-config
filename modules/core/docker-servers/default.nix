@@ -23,7 +23,7 @@ in {
     "d ${podDir} 0775 root podServers -"
     "d ${podDir}/immich/library 0775 immich podServers -"
     "d ${podDir}/immich/postgres 0775 immich podServers -"
-    "d ${podDir}/inventree/inventree-data 0775 inventree podServers -"
+    "d ${podDir}/inventree/inventree-data 0777 inventree podServers -"
     # "d ${podDir}/torrents 0775 torrenter podServers -"
     # "d ${podDir}/torrents/.incomplete 0775 torrenter podServers -"
     # "d ${podDir}/torrents/.watch 0775 torrenter podServers -"

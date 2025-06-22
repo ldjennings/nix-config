@@ -9,7 +9,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nvf.url = "github:notashelf/nvf";
+    # nvf.url = "github:notashelf/nvf";
+
+    # inventree = {
+    #   url = "github:Gigahawk/nixos-inventree";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
 
 
     # nixos-hardware.url = "github:NixOS/nixos-hardware/master";

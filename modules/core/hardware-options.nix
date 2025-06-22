@@ -11,7 +11,5 @@
     graphics.enable = true;
     enableRedistributableFirmware = true;
     keyboard.qmk.enable = false;
-    bluetooth.enable = false;
-    bluetooth.powerOnBoot = false;
   };
 }

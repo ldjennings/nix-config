@@ -16,6 +16,7 @@
     ./nfs.nix
     ./nh.nix
     ./packages.nix
+    ./power.nix
     ./services.nix
     ./syncthing.nix
     ./system.nix

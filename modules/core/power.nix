@@ -29,8 +29,13 @@
   # shutting off the display after 60 seconds
   boot.kernelParams = ["consoleblank=60"];
 
-  # disabling the touchpad
+  # sound.enable = false;
+  services.pulseaudio.enable = false;
+  services.pipewire.enable = false;
+
+  # disabling the touchpad, wifi card, 
   boot.blacklistedKernelModules = [
     "psmouse"
+    "iwlwifi"
   ];
 }
